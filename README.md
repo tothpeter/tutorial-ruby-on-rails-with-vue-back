@@ -15,3 +15,7 @@ rails db:setup
 ## How to run the test suite
 
 rails test
+
+## Set secrets
+
+EDITOR="atom --wait" rails credentials:edit
