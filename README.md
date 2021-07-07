@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the back end part of a Ruby on Rails API with Vue.js tutorial.
 
-Things you may want to cover:
+I followed this tutorial to keep up with the tech world and to get better in my craft.
 
-* Ruby version
+https://www.youtube.com/watch?v=eUedqaHS4RQ
 
-* System dependencies
+## Ruby version
+2.7.3
 
-* Configuration
+## Database creation
+rails db:setup
 
-* Database creation
+## How to run the test suite
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails test
