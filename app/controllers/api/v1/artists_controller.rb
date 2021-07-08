@@ -1,9 +1,10 @@
 class Api::V1::ArtistsController < ApplicationController
+  before_action :authorize_access_request!, except: [:show, :index]
   before_action :set_artist, only: [:show, :update, :destroy]
 
   # GET /api/v1/artists
   def index
-    @artists = Artist.all
+    @artists = current_user.artists.all
 
     render json: @artists
   end
@@ -15,7 +16,7 @@ class Api::V1::ArtistsController < ApplicationController
 
   # POST /api/v1/artists
   def create
-    @artist = Artist.new(artist_params)
+    @artist = current_user.artists.new(artist_params)
 
     if @artist.save
       render json: @artist, status: :created, location: api_v1_artist_url(@artist)
@@ -41,11 +42,11 @@ class Api::V1::ArtistsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artist
-      @artist = Artist.find(params[:id])
+      @artist = current_user.artists.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :user_id)
+      params.require(:artist).permit(:name)
     end
 end
