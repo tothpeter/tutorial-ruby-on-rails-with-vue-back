@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  post 'signup' => 'signup#create'
+  post   'signin' => 'signin#create'
+  delete 'signin' => 'signin#destroy'
+  post   'signup' => 'signup#create'
 
   namespace :api do
     namespace :v1 do
