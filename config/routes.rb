@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :artists
     end
   end
+
+  root to: "home#index"
 end
